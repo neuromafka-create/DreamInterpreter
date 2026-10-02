@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Толкователь снов</title>
+  <meta name="description" content="Разговор, в котором можно исследовать возможные смыслы сна: образы, чувства и связи с повседневной жизнью.">
+  <link rel="icon" href="/favicon.svg?v=think" type="image/svg+xml">
+  <script src="/theme.js?v=think"></script>
+  <link rel="stylesheet" href="/styles.css?v=think">
+</head>
+<body>
+  <main class="sheet">
+    <header class="mast">
+      <div class="mast-row">
+        <h1>Толкователь снов</h1>
+        <a class="nav" href="/settings">Настройки</a>
+      </div>
+      <p class="lede">Здесь можно спокойно разобрать сон: что в нём происходило, что вы чувствовали и какие связи с обычной жизнью кажутся правдоподобными. В ответ будут несколько гипотез, а не единственно верное толкование.</p>
+      <p id="connection" class="connection"></p>
+    </header>
+
+    <div id="thread" class="thread"></div>
+    <p id="status" class="sr" aria-live="polite"></p>
+
+    <form id="composer" class="composer">
+      <label for="dream">Ваш рассказ</label>
+      <textarea id="dream" name="dream" rows="5" placeholder="Сон, как вы его помните"></textarea>
+      <p class="hint">Ctrl+Enter отправляет рассказ. Обычный Enter начинает новую строку.</p>
+      <p id="error" class="error" role="alert" hidden></p>
+      <div class="actions">
+        <button type="submit" id="send" class="primary">Разобрать</button>
+        <button type="button" id="reset" class="ghost">Новый сон</button>
+      </div>
+    </form>
+
+    <footer class="fine">
+      <p>Это не приём психотерапевта и не медицинская консультация. Если сон оставляет сильный дистресс или после пробуждения держатся телесные симптомы, лучше обсудить это с подходящим специалистом.</p>
+      <p>Разговор не записывается в этом приложении. Текст сна отправляется на подключённый адрес, только чтобы получить ответ.</p>
+    </footer>
+  </main>
+  <script src="/app.js?v=think" type="module"></script>
+</body>
+</html>

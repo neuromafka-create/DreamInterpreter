@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Подключение — Толкователь снов</title>
+  <meta name="description" content="Адрес, ключ и модель для любой нейросети с запросами в формате OpenAI.">
+  <link rel="icon" href="/favicon.svg?v=think" type="image/svg+xml">
+  <script src="/theme.js?v=think"></script>
+  <link rel="stylesheet" href="/styles.css?v=think">
+</head>
+<body>
+  <main class="sheet settings">
+    <header class="mast">
+      <div class="mast-row">
+        <h1>Подключение</h1>
+        <a class="nav" href="/">К разговору</a>
+      </div>
+      <p class="lede">Здесь выбирается, какая нейросеть отвечает на рассказ. Подойдёт Hubris и любой другой сервис, который принимает запросы в формате OpenAI. Для сервера на этом компьютере можно указать http://127.0.0.1 и не задавать ключ. Ключ остаётся на этом компьютере и обратно в страницу не подставляется.</p>
+    </header>
+
+    <form id="settings" method="post" action="/api/settings" autocomplete="off">
+      <fieldset class="presets">
+        <legend>Оформление</legend>
+        <div id="theme-list" class="choices">
+          <label class="choice"><input type="radio" name="theme" value="intel" checked> Intel</label>
+          <label class="choice"><input type="radio" name="theme" value="amd"> AMD</label>
+          <label class="choice"><input type="radio" name="theme" value="adobe"> Adobe</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="presets">
+        <legend>Схема</legend>
+        <div id="scheme-list" class="choices">
+          <label class="choice"><input type="radio" name="scheme" value="dark" checked> Тёмная</label>
+          <label class="choice"><input type="radio" name="scheme" value="light"> Светлая</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="presets">
+        <legend>Сервис</legend>
+        <div id="preset-list" class="choices"></div>
+      </fieldset>
+
+      <div class="field">
+        <label class="field-label" for="base-url">Адрес API</label>
+        <input id="base-url" name="baseUrl" type="url" inputmode="url" spellcheck="false" autocapitalize="off" autocomplete="off" required>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="api-key">Ключ</label>
+        <input id="api-key" name="access-key" type="password" spellcheck="false" autocapitalize="off" autocomplete="off" readonly>
+        <p id="key-note" class="hint"></p>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="model">Модель</label>
+        <input id="model" name="model" list="model-list" spellcheck="false" autocapitalize="off" autocomplete="off" required>
+        <datalist id="model-list"></datalist>
+        <p id="model-note" class="hint">Имя можно выбрать из каталога после проверки или вписать вручную.</p>
+      </div>
+
+      <p class="hint shift">Проверка только смотрит каталог. Разговор переключится после сохранения.</p>
+      <p id="error" class="error" role="alert" hidden></p>
+      <p id="saved" class="hint" role="status"></p>
+
+      <div class="actions">
+        <button type="submit" class="primary" id="save">Сохранить</button>
+        <button type="button" class="ghost" id="check">Проверить</button>
+        <button type="button" class="ghost" id="forget" hidden>Забыть ключ</button>
+      </div>
+    </form>
+  </main>
+  <script src="/settings.js?v=think" type="module"></script>
+</body>
+</html>

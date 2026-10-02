@@ -1,0 +1,8 @@
+.env
+data/
+node_modules/
+.gstack/
+
+# Страницы больше не подключают эти файлы Literata.
+public/fonts/
+public/fonts.css
